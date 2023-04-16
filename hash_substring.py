@@ -7,19 +7,20 @@ def read_input():
     if "I" in inp:
         pattern = input()
         txt = input()
+        test = 1
     if "F" in inp:
         path = "tests/06"
         with open(path,'r') as file:
             pattern = file.readline().rstrip()
             txt = file.readline().rstrip()
-       
+        test=0
     # after input type choice
     # read two lines 
     # first line is pattern 
     # second line is text in which to look for pattern 
     
     # return both lines in one return
-    return pattern, txt
+    return pattern, txt, test
 
 def hash(pattern: str) -> int:
     global B, Q
@@ -65,5 +66,9 @@ if __name__ == '__main__':
     B = 13
     Q = 256
     inps = read_input()
+    if inps[2]==1:
+        print("ok")
+    print(inps[0])
+    print(inps[1])
     print_occurrences(get_occurrences(inps[0],inps[1]))
 
