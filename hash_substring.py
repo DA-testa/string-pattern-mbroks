@@ -4,23 +4,24 @@ def read_input():
     # this function needs to aquire input both from keyboard and file
     # as before, use capital i (input from keyboard) and capital f (input from file) to choose which input type will follow
     inp = input()
-    if "I" in inp:
-        pattern = input()
-        txt = input()
-        test = 1
     if "F" in inp:
         path = "tests/06"
         with open(path,'r') as file:
             pattern = file.readline().rstrip()
             txt = file.readline().rstrip()
         test=0
+    elif "I" in inp:
+        pattern = input()
+        txt = input()
+        test = 1
     # after input type choice
     # read two lines 
     # first line is pattern 
     # second line is text in which to look for pattern 
-    
+    pattern = pattern.rstrip()
+    txt = txt.rstrip()
     # return both lines in one return
-    return pattern, txt, test
+    return pattern, txt
 
 def hash(pattern: str) -> int:
     global B, Q
