@@ -1,10 +1,8 @@
 # python3
 
-
 def read_input():
     # this function needs to aquire input both from keyboard and file
     # as before, use capital i (input from keyboard) and capital f (input from file) to choose which input type will follow
-    inp = ""
     inp = input()
     if "I" in inp:
         pattern = input()
@@ -21,8 +19,6 @@ def read_input():
     # second line is text in which to look for pattern 
     
     # return both lines in one return
-    
-    # this is the sample return, notice the rstrip function
     return pattern, txt
 
 def hash(pattern: str) -> int:
@@ -36,8 +32,7 @@ def hash(pattern: str) -> int:
 def print_occurrences(output):
     # this function should control output, it doesn't need any return
     #print(' '.join(map(str, output)))
-    for x in output:
-        print(x)
+    print(*output)
 
 def get_occurrences(pattern, text):
     output = []
@@ -70,6 +65,5 @@ if __name__ == '__main__':
     B = 13
     Q = 256
     inps = read_input()
-    print(*get_occurrences(inps[0],inps[1]))
-    #print_occurrences(get_occurrences(inps[0],inps[1]))
+    print_occurrences(get_occurrences(inps[0],inps[1]))
 
