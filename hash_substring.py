@@ -7,16 +7,14 @@ def read_input():
     inp = ""
     inp = input()
     if "I" in inp:
-        pattern = input().rstrip()
-        txt = input().rstrip()
+        pattern = input()
+        txt = input()
     if "F" in inp:
         path = "tests/06"
         with open(path,'r') as file:
             pattern = file.readline().rstrip()
             txt = file.readline().rstrip()
-      
        
-    
     # after input type choice
     # read two lines 
     # first line is pattern 
@@ -50,22 +48,20 @@ def get_occurrences(pattern, text):
     mult = 1
     for k in range(1,pattern_len):
         mult = (mult*B)%Q
-    j=0
     pattern_hash = hash(pattern)
     text_hash = hash(text[:pattern_len])
     for j in range(text_len-pattern_len+1):
         if text_hash == pattern_hash:
+            match = True
             for z in range(pattern_len):
                 if text[z+j]!=pattern[z]:
+                    match = False
                     break
-                else:
-                    j=j+1
-            if j == pattern_len:
+            if match is True:
                 output.append(j)
-        if j< text_len-pattern_len:
+        if j<(text_len-pattern_len):
             text_hash = (text_hash-mult*ord(text[j])) % Q
-            text_hash = (text_hash*B+ord(text[j+pattern_len])) % Q
-            text_hash = (text_hash+Q)%Q
+            text_hash = (text_hash*B+ord(text[j+pattern_len])) % Q    
     return output
 
 
@@ -73,5 +69,7 @@ def get_occurrences(pattern, text):
 if __name__ == '__main__':
     B = 13
     Q = 256
-    print_occurrences(get_occurrences(*read_input()))
+    inps = read_input()
+    print(*get_occurrences(inps[0],inps[1]))
+    #print_occurrences(get_occurrences(inps[0],inps[1]))
 
