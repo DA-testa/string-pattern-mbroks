@@ -66,9 +66,11 @@ if __name__ == '__main__':
     B = 13
     Q = 256
     inps = read_input()
-    if inps[2]==1:
-        print("ok")
-    print(inps[0])
-    print(inps[1])
-    print_occurrences(get_occurrences(inps[0],inps[1]))
+    print(*get_occurrences(inps[0],inps[1]))
+    #if inps[2]==1:
+        #print("ok")
+    #print(inps[0])
+    #print(inps[1])
+
+    #print_occurrences(get_occurrences(inps[0],inps[1]))
 
