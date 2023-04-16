@@ -25,7 +25,7 @@ def read_input():
     # return both lines in one return
     
     # this is the sample return, notice the rstrip function
-    return (input().rstrip(), input().rstrip())
+    return pattern, txt
 
 def hash(pattern: str) -> int:
     global B, Q
@@ -62,7 +62,7 @@ def get_occurrences(pattern, text):
                     j=j+1
             if j == pattern_len:
                 output.append(j)
-        text_hash = (text_hash-mult*B*B)*B+ord(text[pattern_len+i+1])       
+        text_hash = (text_hash-mult*B*B)*B+ord(text[pattern_len+j+1])       
     return output
 
 
