@@ -62,7 +62,10 @@ def get_occurrences(pattern, text):
                     j=j+1
             if j == pattern_len:
                 output.append(j)
-        text_hash = (text_hash-mult*B*B)*B+ord(text[pattern_len+j+1])       
+        if j< text_len-pattern_len:
+            text_hash = (text_hash-mult*ord(text[j])) % Q
+            text_hash = (text_hash*B+ord(text[j+pattern_len])) % Q
+            text_hash = (text_hash+Q)%Q
     return output
 
 
